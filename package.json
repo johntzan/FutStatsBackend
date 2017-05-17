@@ -1,0 +1,25 @@
+{
+  "name": "weekend-league-backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "test": "eslint src"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "morgan": "^1.8.0",
+    "request": "latest",
+    "cheerio": "latest",
+    "resource-router-middleware": "^0.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  }
+}
