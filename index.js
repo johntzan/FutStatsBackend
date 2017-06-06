@@ -150,7 +150,7 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 	api.get('/months', (req, res) => {
 
 			var monthsAvailable = ["October 2016", "November 2016", "December 2016", "January 2017", "February 2017", "March 2017",
-															"April 2017", "May 2017, June 2017"];
+															"April 2017", "May 2017", "June 2017"];
 
 			res.json(monthsAvailable);
 
