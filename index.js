@@ -114,7 +114,7 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 		if(!error){
 			var $ = cheerio.load(html);
 
-			$('#siteContainer > div.sitecontent > div:nth-child(4) > div.span-820 > table > tbody > tr').each(function(i, elem) {
+			$('#siteContainer > div:nth-child(8) > div:nth-child(1) > div.span-820 > table > tbody > tr').each(function(i, elem) {
 				var element = $(this).text();
 				element = element.trim().split('\n');
 				// console.log(element);
