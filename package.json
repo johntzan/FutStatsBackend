@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "eslint src"
+    "test": "eslint src",
+    "deploy": "git push origin master && git push heroku master"
   },
   "dependencies": {
     "body-parser": "^1.13.3",
