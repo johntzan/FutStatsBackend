@@ -106,6 +106,7 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 		console :req.params.console
 	}
 
+	//http://localhost:8080/api/top100/current/all/ps4
 	//for different months change /current/ with /monthYear/ ex: /march2017/.
 	//changing out '/all/' for region -> /americas/ for region [americas, europe, row]
 	var url2 = 'http://www.futwiz.com/en/fut-champions/leaderboards/' + params.month + '/' + params.region + '/' + params.console ;
@@ -114,7 +115,7 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 		if(!error){
 			var $ = cheerio.load(html);
 
-			$('#siteContainer > div:nth-child(8) > div:nth-child(1) > div.span-820 > table > tbody > tr').each(function(i, elem) {
+			$('#siteContainer > div.sitecontent > div:nth-child(4) > div.span-820 > table > tbody > tr').each(function(i, elem) {
 				var element = $(this).text();
 				element = element.trim().split('\n');
 				// console.log(element);
