@@ -77,13 +77,13 @@ api.get('/user/:username/:id', (req, res) => {
 					table.rankings.push(leaderboardsObj);
 				});
 
-				let region = $('#siteContainer > div.sitecontent > div:nth-child(4) > div > div.span-240 > div.pull-left.mr-20.text-center > p.mt-10').text();
+				let region = $('#siteContainer > div.sitecontent > div:nth-child(3) > div > div.span-240 > div.pull-left.mr-20.text-center > p.mt-10').text();
 				// console.log('Region: ' + region);
 
-				let system_played = $('#siteContainer > div.sitecontent > div:nth-child(4) > div > div.span-240 > div:nth-child(3) > p.mt-10').text();
+				let system_played = $('#siteContainer > div.sitecontent > div:nth-child(3) > div > div.span-240 > div:nth-child(3) > p.mt-10').text();
 				if(system_played.length<1){
 					// console.log('console is null, use alt method');
-					system_played = $('#siteContainer > div.sitecontent > div:nth-child(4) > div > div.span-240 > div:nth-child(7) > p.mt-10').text();
+					system_played = $('#siteContainer > div.sitecontent > div:nth-child(3) > div > div.span-240 > div:nth-child(7) > p.mt-10').text();
 				}
 
 				table.region = region;
@@ -114,8 +114,7 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 	request(url2, function(error, response, html){
 		if(!error){
 			var $ = cheerio.load(html);
-
-			$('#siteContainer > div.sitecontent > div:nth-child(4) > div.span-820 > table > tbody > tr').each(function(i, elem) {
+			$('#siteContainer > div.sitecontent > div:nth-child(3) > div.span-820 > table > tbody > tr').each(function(i, elem) {
 				var element = $(this).text();
 				element = element.trim().split('\n');
 				// console.log(element);
