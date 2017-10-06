@@ -103,9 +103,65 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 	var params = {
 		month: req.params.month,
 		region: req.params.region,
-		console :req.params.console
+		console: req.params.console
 	}
 
+	var regionAsString =  req.params.region.charAt(0).toUpperCase() + req.params.region.slice(1);
+
+	if(params.month === "october2017" || params.month === "current"){
+
+		// console.log("October Stats");
+		if(params.region === "americas"){
+			params.region = "ams";
+		}
+		else if(params.region === "europe"){
+			params.region = "eur";
+		}
+		else if(params.region === "row"){
+			regionAsString = "ROW";
+		}
+
+		if(params.console === "xbox"){
+			params.console = "xboxone";
+		}
+		var curr = "curr";
+
+		if(req.params.region !== "all"){
+
+
+		var url1 = 'https://www.easports.com/cgw/api/fifa/fut/leaderboard?platform='+ params.console+ '&region=' + params.region + '&period=' + curr;
+		console.log(url1);
+
+		request(url1, function(error, response){
+			if(!error && response.body !== undefined){
+
+				var results = JSON.parse(response.body);
+				for (var i = 0; i < results.length; i++){
+							var consoleData = [];
+					    var obj = results[i];
+
+							consoleData.push(obj["rank"]);
+							consoleData.push(obj["persona"]);
+							consoleData.push(obj["wins"]);
+							consoleData.push(obj["skill"]);
+							consoleData.push("");
+							consoleData.push(regionAsString);
+
+							top100.console.push(consoleData);
+				}
+				res.json(top100);
+			}
+
+		});
+
+		}
+		else{
+			res.json([]);
+		}
+
+	}
+
+else{
 	//http://localhost:8080/api/top100/current/all/ps4
 	//for different months change /current/ with /monthYear/ ex: /march2017/.
 	//changing out '/all/' for region -> /americas/ for region [americas, europe, row]
@@ -126,8 +182,9 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 		}
 
 	});
-		});
 
+	}
+		});
 
 		api.get('/search/:query', (req, res) => {
 
@@ -150,7 +207,7 @@ api.get('/top100/:month/:region/:console', (req, res) => {
 	api.get('/months', (req, res) => {
 
 			var monthsAvailable = ["October 2016", "November 2016", "December 2016", "January 2017", "February 2017", "March 2017",
-															"April 2017", "May 2017", "June 2017", "July 2017", "August 2017"];
+															"April 2017", "May 2017", "June 2017", "July 2017", "August 2017", "October 2017"];
 
 			res.json(monthsAvailable);
 
