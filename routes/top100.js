@@ -20,7 +20,7 @@ router.get('/:month/:region/:console', (req, res) => {
 	}
 
 	var paramsAsString = params.month+params.region+params.console;
-	console.log(paramsAsString);
+	// console.log(paramsAsString);
 
 	var top100 = {
 		console: []
@@ -28,7 +28,7 @@ router.get('/:month/:region/:console', (req, res) => {
 
 client.get(paramsAsString, function(err, reply) {
 		if(reply!==null){
-			console.log('FOUND: ' + reply);
+			console.log('FOUND: ' + paramsAsString);
 			top100 = JSON.parse(reply);
 			res.json(top100);
 		}
@@ -38,7 +38,7 @@ client.get(paramsAsString, function(err, reply) {
 			// for different months change /current/ with /monthYear/ ex: /march2017/.
 			// changing out '/all/' for region -> /americas/ for region [americas, europe, row]
 			var url1 = 'http://www.futwiz.com/en/fut-champions/leaderboards/' + params.month + '/' + params.region + '/' + params.console ;
-			console.log(url1);
+			// console.log(url1);
 			 request(url1, function(error, response, html){
 				if(!error){
 					var $ = cheerio.load(html);
