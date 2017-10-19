@@ -4,19 +4,20 @@
   "description": "",
   "main": "dist",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "test": "eslint src",
     "deploy": "git push origin master && git push heroku master"
   },
   "dependencies": {
-    "body-parser": "^1.13.3",
+    "body-parser": "^1.18.2",
+    "cheerio": "latest",
     "compression": "^1.5.2",
     "cors": "^2.7.1",
-    "express": "^4.13.3",
+    "express": "^4.15.5",
     "morgan": "^1.8.0",
+    "redis": "^2.8.0",
     "request": "latest",
-    "cheerio": "latest",
     "resource-router-middleware": "^0.6.0"
   },
   "devDependencies": {
