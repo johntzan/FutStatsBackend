@@ -7,7 +7,7 @@
     "dev": "nodemon ./bin/www",
     "start": "node ./bin/www",
     "test": "eslint src",
-    "deploy": "git push origin master && git push heroku master"
+    "deploy": "git push origin master"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
