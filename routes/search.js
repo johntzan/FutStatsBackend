@@ -3,11 +3,7 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 
-<<<<<<< HEAD
 /* Search users */
-=======
-/* GET users listing. */
->>>>>>> bef1e606765e4fccc46383474fa965831ec5d2a1
 router.get('/:query', function(req, res, next) {
   var params = req.params.query;
 			if(params.length>1){
