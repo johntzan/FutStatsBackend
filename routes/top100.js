@@ -45,7 +45,8 @@ client.get(paramsAsString, function(err, reply) {
 					$('#siteContainer > div.sitecontent > div:nth-child(3) > div.span-820 > table > tbody > tr').each(function(i, elem) {
 						var element = $(this).text();
 						element = element.trim().split('\n');
-						// console.log(element);
+            element.splice(1, 2); //removes 2 blank spots in index 1 & 2 added in recently by futwiz
+            // console.log(element);
 						top100.console.push(element);
 					});
 

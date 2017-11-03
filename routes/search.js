@@ -3,7 +3,7 @@ var express = require('express');
 var request = require('request');
 var router = express.Router();
 
-/* GET users listing. */
+/* Search users */
 router.get('/:query', function(req, res, next) {
   var params = req.params.query;
 			if(params.length>1){
