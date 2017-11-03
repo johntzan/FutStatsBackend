@@ -45,8 +45,12 @@ client.get(paramsAsString, function(err, reply) {
 					$('#siteContainer > div.sitecontent > div:nth-child(3) > div.span-820 > table > tbody > tr').each(function(i, elem) {
 						var element = $(this).text();
 						element = element.trim().split('\n');
+<<<<<<< HEAD
             element.splice(1, 2); //removes 2 blank spots in index 1 & 2 added in recently by futwiz
             // console.log(element);
+=======
+						// console.log(element);
+>>>>>>> bef1e606765e4fccc46383474fa965831ec5d2a1
 						top100.console.push(element);
 					});
 
