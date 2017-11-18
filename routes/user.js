@@ -18,7 +18,8 @@ router.get('/:username/:id', (req, res) => {
 			var $ = cheerio.load(html);
 
 				//username
-				const username = $('div.headercopy h1').text();
+				//#siteContainer > div.sitecontent > div.pull-left > h1
+				const username = $('#siteContainer > div.sitecontent > div > h1').text();
 
 				//leaderboards table
 				const table = {
@@ -41,10 +42,14 @@ router.get('/:username/:id', (req, res) => {
 					table.rankings.push(leaderboardsObj);
 				});
 
+				//Region
 				let region = $('#siteContainer > div.sitecontent > div:nth-child(3) > div > div.span-240 > div.pull-left.mr-20.text-center > p.mt-10').text();
-				// console.log('Region: ' + region);
+				if(region.length<1){
+					region = $('#siteContainer > div.sitecontent > div:nth-child(4) > div > div.span-240 > div.pull-left.mr-20.text-center > p.mt-10').text();
 
-				let system_played = $('#siteContainer > div.sitecontent > div:nth-child(3) > div > div.span-240 > div:nth-child(3) > p.mt-10').text();
+				}
+
+				let system_played = $('#siteContainer > div.sitecontent > div:nth-child(4) > div > div.span-240 > div:nth-child(3) > p.mt-10').text();
 				if(system_played.length<1){
 					// console.log('console is null, use alt method');
 					system_played = $('#siteContainer > div.sitecontent > div:nth-child(3) > div > div.span-240 > div:nth-child(7) > p.mt-10').text();

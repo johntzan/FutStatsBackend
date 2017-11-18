@@ -42,11 +42,11 @@ client.get(paramsAsString, function(err, reply) {
 			 request(url1, function(error, response, html){
 				if(!error){
 					var $ = cheerio.load(html);
-					$('#siteContainer > div.sitecontent > div:nth-child(3) > div.span-820 > table > tbody > tr').each(function(i, elem) {
+					$('#siteContainer > div.sitecontent > div:nth-child(4) > div.span-820 > table > tbody > tr').each(function(i, elem) {
 						var element = $(this).text();
 						element = element.trim().split('\n');
             element.splice(1, 2); //removes 2 blank spots in index 1 & 2 added in recently by futwiz
-            // console.log(element);
+            console.log(element);
 						top100.console.push(element);
 					});
 
