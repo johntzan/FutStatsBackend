@@ -27,10 +27,10 @@ router.get("/:month/:region/:console", (req, res) => {
 
   client.get(paramsAsString, function(err, reply) {
     if (reply !== null) {
-      console.log("FOUND: " + paramsAsString);
-      top100 = JSON.parse(reply);
-      res.json(top100);
-    } else {
+      //   console.log("FOUND: " + paramsAsString);
+      //   top100 = JSON.parse(reply);
+      //   res.json(top100);
+      // } else {
       console.log("NOT FOUND: " + paramsAsString);
       // http://localhost:8080/api/top100/current/all/ps4
       // for different months change /current/ with /monthYear/ ex: /march2017/.
@@ -51,7 +51,11 @@ router.get("/:month/:region/:console", (req, res) => {
           ).each(function(i, elem) {
             var element = $(this).text();
             element = element.trim().split("\n");
-            element.splice(1, 2); //removes 2 blank spots in index 1 & 2 added in recently by futwiz
+            if (params.console === "ps4") {
+              element.splice(1, 2); //removes 2 blank spots in index 1 & 2 added in recently by futwiz
+            } else {
+              element.splice(1, 3); //xbox for some reason has 3 blank spots?..
+            }
             console.log(element);
             top100.console.push(element);
           });
