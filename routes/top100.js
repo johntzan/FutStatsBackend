@@ -27,10 +27,10 @@ router.get("/:month/:region/:console", (req, res) => {
 
   client.get(paramsAsString, function(err, reply) {
     if (reply !== null) {
-      //   console.log("FOUND: " + paramsAsString);
-      //   top100 = JSON.parse(reply);
-      //   res.json(top100);
-      // } else {
+      console.log("FOUND: " + paramsAsString);
+      top100 = JSON.parse(reply);
+      res.json(top100);
+    } else {
       console.log("NOT FOUND: " + paramsAsString);
       // http://localhost:8080/api/top100/current/all/ps4
       // for different months change /current/ with /monthYear/ ex: /march2017/.
