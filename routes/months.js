@@ -16,7 +16,8 @@ router.get("/", function(req, res, next) {
     "July 2018",
     "August 2018", 
     "October 2018",
-    "November 2018"
+    "November 2018",
+    "December 2018"
   ];
 
   res.json(monthsAvailable);
